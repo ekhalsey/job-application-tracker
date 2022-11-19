@@ -1,5 +1,7 @@
 package org.launchcode.codingevents.models;
 
+import org.hibernate.validator.constraints.URL;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,9 +22,12 @@ public class Job {
     private String employer;
     private String contactName;
 
-    @Email
+    @Email(message = "enter valid email")
     private String contactEmail;
-    private String source;
+
+    @URL(message = "must be a URL")
+    private String link;
+    private String notes;
 
     private StatusEnum applicationStatus;
 
@@ -64,12 +69,12 @@ public class Job {
         this.contactEmail = contactEmail;
     }
 
-    public String getSource() {
-        return source;
+    public String getLink() {
+        return link;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public StatusEnum getApplicationStatus() {
@@ -78,5 +83,13 @@ public class Job {
 
     public void setApplicationStatus(StatusEnum applicationStatus) {
         this.applicationStatus = applicationStatus;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

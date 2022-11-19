@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<body class="container">
 
 <header th:replace="fragments :: header"></header>
 
-<table class="table table-striped">
+<table class="table table-striped table-bordered" style="width: 100%">
+    <thead>
+    <tr>
+        <th>Link</th>
+        <th>Job Title</th>
+        <th>Employer</th>
+        <th>A Person</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Notes</th>
+    </tr>
+    </thead>
     <tr th:each="job : ${jobs}">
+        <td>
+            <form action="/redirect" method="post">
+                <input type="hidden" value="${job.id}" id="id" name="id">
+<!--                <input type="hidden" value="${job.id}" name="jobId">-->
+                <input type="submit" value="Link"></form>
+        </td>
         <td th:text="${job.jobTitle}"></td>
         <td th:text="${job.employer}"></td>
         <td th:text="${job.contactName}"></td>
+        <td th:text="${job.contactEmail}"></td>
+        <td th:text="${job.applicationStatus.displayName}"></td>
+        <td th:text="${job.notes}"></td>
     </tr>
 </table>
 

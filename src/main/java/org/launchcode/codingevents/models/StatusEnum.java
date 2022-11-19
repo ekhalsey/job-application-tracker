@@ -1,15 +1,17 @@
 package org.launchcode.codingevents.models;
 
 public enum StatusEnum {
+    TOAPPLY("To apply to"),
     APPLIED("Applied"),
-    TOAPPLY("To Apply to"),
     REJECTED("Rejected/Ghosted"),
-    INTERVIEW("Interview");
+    INTERVIEW("Interview"),
+    APPINPROGRESS("Application in progress");
 
     private final String displayName;
     StatusEnum(String displayName) {
         this.displayName = displayName;
     }
+
 
     public String getDisplayName() {
         return displayName;
