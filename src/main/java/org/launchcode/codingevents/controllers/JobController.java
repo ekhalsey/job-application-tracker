@@ -48,19 +48,19 @@ public class JobController {
         return "redirect:";
     }
 
-    @PostMapping(value = "/redirect")
-    public RedirectView redirect(Model model, @RequestParam String id){
-        Integer number = Integer.valueOf(id);
-        //        System.out.println(link);
-        System.out.println(number);
-        Optional<Job> result = jobsRepository.findById(number);
-        Job job = result.get();
-
-        RedirectView redirectView = new RedirectView();
-        redirectView.setUrl(job.getLink());
-
-        return redirectView;
-
-    }
+//    @PostMapping(value = "/redirect")
+//    public RedirectView redirect(Model model, @RequestParam String id){
+//        Integer number = Integer.valueOf(id);
+//        //        System.out.println(link);
+//        System.out.println(number);
+//        Optional<Job> result = jobsRepository.findById(number);
+//        Job job = result.get();
+//
+//        RedirectView redirectView = new RedirectView();
+//        redirectView.setUrl(job.getJobDetails().getLink());
+//
+//        return redirectView;
+//
+//    }
 
 }

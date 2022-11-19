@@ -18,18 +18,13 @@
     </tr>
     </thead>
     <tr th:each="job : ${jobs}">
-        <td>
-            <form action="/redirect" method="post">
-                <input type="hidden" value="${job.id}" id="id" name="id">
-<!--                <input type="hidden" value="${job.id}" name="jobId">-->
-                <input type="submit" value="Link"></form>
-        </td>
+        <td><a th:href="${job.jobDetails.link}">Link</a></td>
         <td th:text="${job.jobTitle}"></td>
-        <td th:text="${job.employer}"></td>
-        <td th:text="${job.contactName}"></td>
-        <td th:text="${job.contactEmail}"></td>
-        <td th:text="${job.applicationStatus.displayName}"></td>
-        <td th:text="${job.notes}"></td>
+        <td th:text="${job.jobDetails.employer}"></td>
+        <td th:text="${job.jobDetails.contactName}"></td>
+        <td th:text="${job.jobDetails.contactEmail}"></td>
+        <td th:text="${job.jobDetails.applicationStatus.displayName}"></td>
+        <td th:text="${job.jobDetails.notes}"></td>
     </tr>
 </table>
 

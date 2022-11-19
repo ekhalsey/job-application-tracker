@@ -8,9 +8,9 @@
 <form method="post" class="form">
     <div class="form-group">
         <label>Link to Job Posting
-            <input th:field="${job.link}" class="form-control">
+            <input th:field="${job.jobDetails.link}" class="form-control">
         </label>
-        <p class="error" th:errors="${job.link}"></p>
+        <p class="error" th:errors="${job.jobDetails.link}"></p>
     </div>
 
     <div class="form-group">
@@ -22,41 +22,41 @@
 
     <div class="form-group">
         <label>Employer
-            <input th:field="${job.employer}" class="form-control">
+            <input th:field="${job.jobDetails.employer}" class="form-control">
         </label>
-        <p class="error" th:errors="${job.employer}"></p>
+        <p class="error" th:errors="${job.jobDetails.employer}"></p>
     </div>
 
     <div class="form-group">
         <label>Contact Name
-            <input th:field="${job.contactName}" class="form-control">
+            <input th:field="${job.jobDetails.contactName}" class="form-control">
         </label>
-        <p class="error" th:errors="${job.contactName}"></p>
+        <p class="error" th:errors="${job.jobDetails.contactName}"></p>
     </div>
 
     <div class="form-group">
         <label>Contact Email
-            <input th:field="${job.contactEmail}" class="form-control">
+            <input th:field="${job.jobDetails.contactEmail}" class="form-control">
         </label>
-        <p class="error" th:errors="${job.contactEmail}"></p>
+        <p class="error" th:errors="${job.jobDetails.contactEmail}"></p>
     </div>
 
     <div class="form-group">
         <label>Notes
-            <input th:field="${job.notes}" class="form-control">
+            <input th:field="${job.jobDetails.notes}" class="form-control">
         </label>
-        <p class="error" th:errors="${job.notes}"></p>
+        <p class="error" th:errors="${job.jobDetails.notes}"></p>
     </div>
 
     <div class="form-group">
         <label>Status
-            <select th:field="${job.applicationStatus}" class="form-control">
+            <select th:field="${job.jobDetails.applicationStatus}" class="form-control">
                 <option th:each="status : ${statuses}"
                         th:value="${status}"
                         th:text="${status.displayName}"></option>
             </select>
         </label>
-        <p class="error" th:errors="${job.applicationStatus}"></p>
+        <p class="error" th:errors="${job.jobDetails.applicationStatus}"></p>
     </div>
     <input type="submit" value="Create" class="btn btn-success">
 </form>
