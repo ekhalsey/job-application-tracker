@@ -2,17 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title>Coding Events</title>
+    <title>Job Applications</title>
     <link rel="stylesheet" th:href="@{/styles.css}">
     <script th:src="@{/script.js}"></script>
 </head>
 <body>
 
 <nav th:fragment="header">
-    <h1 th:text="${title}">Coding Events</h1>
+    <h1 th:text="${title}">Job Applications</h1>
     <ul>
-        <li><a href="/events">All Events</a></li>
-        <li><a href="/events/create">Create Event</a></li>
+        <li><a href="/jobs">All Jobs</a></li>
+        <li><a href="/jobs/create">Create Job</a></li>
     </ul>
 </nav>
 
