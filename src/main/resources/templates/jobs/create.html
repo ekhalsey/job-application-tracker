@@ -6,13 +6,27 @@
 <header th:replace="fragments :: header"></header>
 
 <form method="post">
-    <label>Job Title
-        <input type="text" name="jobTitle">
-    </label>
-    <label>Employer
-        <input type="text" name="employer">
-    </label>
-    <input type="submit" value="Create">
+    <div class="form-group">
+        <label>Job Title
+            <input th:field="${job.jobTitle}" class="form-control">
+        </label>
+        <p class="error" th:errors="${job.jobTitle}"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Employer
+            <input th:field="${job.employer}" class="form-control">
+        </label>
+        <p class="error" th:errors="${job.employer}"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Contact
+            <input th:field="${job.contactName}" class="form-control">
+        </label>
+        <p class="error" th:errors="${job.contactName}"></p>
+    </div>
+    <input type="submit" value="Create" class="btn btn-success">
 </form>
 
 </body>

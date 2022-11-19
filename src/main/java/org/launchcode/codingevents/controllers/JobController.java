@@ -5,14 +5,13 @@ import org.launchcode.codingevents.models.Job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Chris Bay
- */
 @Controller
 @RequestMapping("jobs")
 public class JobController {
@@ -30,11 +29,16 @@ public class JobController {
     @GetMapping("create")
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Job");
+        model.addAttribute(new Job());
         return "jobs/create";
     }
 
     @PostMapping("create")
-    public String processCreateEventForm(@ModelAttribute Job newJob) {
+    public String processCreateEventForm(@ModelAttribute @Valid Job newJob, Errors errors, Model model) {
+        if (errors.hasErrors()){
+            model.addAttribute("title", "Create Job");
+            return"jobs/create";
+        }
         jobsRepository.save(newJob);
         return "redirect:";
     }

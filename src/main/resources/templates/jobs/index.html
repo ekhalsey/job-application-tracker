@@ -5,12 +5,11 @@
 
 <header th:replace="fragments :: header"></header>
 
-<table>
-    <tr>
-        <th:block th:each="job : ${jobs}">
-            <td th:text="${job.jobTitle}"></td>
-            <td th:text="${job.employer}"></td>
-        </th:block>
+<table class="table table-striped">
+    <tr th:each="job : ${jobs}">
+        <td th:text="${job.jobTitle}"></td>
+        <td th:text="${job.employer}"></td>
+        <td th:text="${job.contactName}"></td>
     </tr>
 </table>
 

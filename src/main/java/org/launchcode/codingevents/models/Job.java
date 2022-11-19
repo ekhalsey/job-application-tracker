@@ -3,6 +3,7 @@ package org.launchcode.codingevents.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -18,8 +19,12 @@ public class Job {
 
     private String employer;
     private String contactName;
+
+    @Email
     private String contactEmail;
     private String source;
+
+    private StatusEnum applicationStatus;
 
     public Job() {}
 
@@ -65,5 +70,13 @@ public class Job {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public StatusEnum getApplicationStatus() {
+        return applicationStatus;
+    }
+
+    public void setApplicationStatus(StatusEnum applicationStatus) {
+        this.applicationStatus = applicationStatus;
     }
 }
