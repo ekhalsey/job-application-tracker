@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<header th:replace="fragments :: header"></header>
+
+<form method="post" class="form">
+    <div class="form-group">
+        <label>Name
+            <input th:field="${networkingContact.name}" class="form-control">
+        </label>
+        <p class="error" th:errors="${networkingContact.name}"></p>
+    </div>
+    <div class="form-group">
+        <label>Email
+            <input th:field="${networkingContact.email}" class="form-control">
+        </label>
+        <p class="error" th:errors="${networkingContact.email}"></p>
+    </div>
+    <div class="form-group">
+        <label>LinkedIn
+            <input th:field="${networkingContact.linkedIn}" class="form-control">
+        </label>
+        <p class="error" th:errors="${networkingContact.linkedIn}"></p>
+    </div>
+    <div class="form-group">
+        <label>Notes
+            <input th:field="${networkingContact.notes}" class="form-control">
+        </label>
+        <p class="error" th:errors="${networkingContact.notes}"></p>
+    </div>
+    <input type="submit" value="Add Contact" class="btn btn-success">
+</form>
+
+</body>
+</html>

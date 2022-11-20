@@ -8,13 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("jobs")
@@ -47,20 +42,23 @@ public class JobController {
         jobsRepository.save(newJob);
         return "redirect:";
     }
+    @GetMapping("delete")
+    public String displayDeleteEventForm(Model model) {
+        model.addAttribute("title", "Delete Jobs");
+        model.addAttribute("jobs", jobsRepository.findAll());
+        return "jobs/delete";
+    }
 
-//    @PostMapping(value = "/redirect")
-//    public RedirectView redirect(Model model, @RequestParam String id){
-//        Integer number = Integer.valueOf(id);
-//        //        System.out.println(link);
-//        System.out.println(number);
-//        Optional<Job> result = jobsRepository.findById(number);
-//        Job job = result.get();
-//
-//        RedirectView redirectView = new RedirectView();
-//        redirectView.setUrl(job.getJobDetails().getLink());
-//
-//        return redirectView;
-//
-//    }
+    @PostMapping("delete")
+    public String processDeleteEventsForm(@RequestParam(required = false) int[] jobIds) {
+
+        if (jobIds != null) {
+            for (int id : jobIds) {
+                jobsRepository.deleteById(id);
+            }
+        }
+
+        return "redirect:";
+    }
 
 }

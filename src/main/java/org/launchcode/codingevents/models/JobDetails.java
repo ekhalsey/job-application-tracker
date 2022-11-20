@@ -4,15 +4,16 @@ import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class JobDetails extends AbstractEntity{
     //date
-
+    @NotBlank
     private String employer;
-    private String contactName;
+
     @Email(message = "enter valid email")
-    private String contactEmail;
+    private String companyEmail;
     @URL(message = "must be a URL")
     private String link;
     private String notes;
@@ -28,20 +29,12 @@ public class JobDetails extends AbstractEntity{
         this.employer = employer;
     }
 
-    public String getContactName() {
-        return contactName;
+    public String getCompanyEmail() {
+        return companyEmail;
     }
 
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
-    }
-
-    public String getContactEmail() {
-        return contactEmail;
-    }
-
-    public void setContactEmail(String contactEmail) {
-        this.contactEmail = contactEmail;
+    public void setCompanyEmail(String companyEmail) {
+        this.companyEmail = companyEmail;
     }
 
     public String getLink() {

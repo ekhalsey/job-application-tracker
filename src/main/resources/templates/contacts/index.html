@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<table class="table table-striped table-bordered" style="width: 100%">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>LinkedIn</td>
+            <td>Notes</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="contact : ${contacts}">
+            <td th:text="${contact.name}"></td>
+            <td th:text="${contact.email}"></td>
+            <td><a th:href="${contact.linkedIn}">LinkedIn</a></td>
+            <td th:text="${contact.notes}"></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

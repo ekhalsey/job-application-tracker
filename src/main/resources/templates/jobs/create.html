@@ -28,17 +28,10 @@
     </div>
 
     <div class="form-group">
-        <label>Contact Name
-            <input th:field="${job.jobDetails.contactName}" class="form-control">
+        <label>Company Email
+            <input th:field="${job.jobDetails.companyEmail}" class="form-control">
         </label>
-        <p class="error" th:errors="${job.jobDetails.contactName}"></p>
-    </div>
-
-    <div class="form-group">
-        <label>Contact Email
-            <input th:field="${job.jobDetails.contactEmail}" class="form-control">
-        </label>
-        <p class="error" th:errors="${job.jobDetails.contactEmail}"></p>
+        <p class="error" th:errors="${job.jobDetails.companyEmail}"></p>
     </div>
 
     <div class="form-group">

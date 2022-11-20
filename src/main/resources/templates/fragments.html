@@ -10,9 +10,13 @@
 
 <nav th:fragment="header">
     <h1 th:text="${title}">Job Applications</h1>
-    <ul>
-        <li><a href="/jobs">All Jobs</a></li>
-        <li><a href="/jobs/create">Create Job</a></li>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/jobs">All Jobs</a></li>
+        <li class="nav-item"><a class="nav-link" href="/jobs/create">Add Job</a></li>
+        <li class="nav-item"><a class="nav-link" href="/jobs/delete">Delete Job</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contacts">Network Contacts</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contacts/create">Add a Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://docs.google.com/document/d/1JLqG_fnCziaOqUsyPeIthoHopySHWHaNL5qmy0n8tF8/edit#heading=h.5rf9wr4r3no2">Resume</a></li>
     </ul>
 </nav>
 
